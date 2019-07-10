@@ -1,7 +1,12 @@
 <h1>Orders</h1>
 
 <table>
-  <tr app-order-list-item *ngFor="let order of orders" [order]="order"></tr>
+  <tr
+    app-order-list-item
+    *ngFor="let order of orders"
+    [order]="order"
+    [routerLink]="['/orders/', order.id]"
+  ></tr>
   <tr *ngIf="!orders">
     <td>
       No orders loaded.
