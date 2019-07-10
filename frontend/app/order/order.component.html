@@ -1,0 +1,7 @@
+<app-order-list [orders]="orders.items"></app-order-list>
+<app-pagination
+  [totalItems]="orders.total"
+  [currentPage]="orders.page"
+  [currentPageItems]="orders.count"
+  (gotoPage)="getPage($event)"
+></app-pagination>

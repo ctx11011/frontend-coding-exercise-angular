@@ -1,0 +1,10 @@
+<h1>Orders</h1>
+
+<table>
+  <tr app-order-list-item *ngFor="let order of orders" [order]="order"></tr>
+  <tr *ngIf="!orders">
+    <td>
+      No orders loaded.
+    </td>
+  </tr>
+</table>
