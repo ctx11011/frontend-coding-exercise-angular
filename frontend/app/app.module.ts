@@ -9,6 +9,7 @@ import { OrderListComponent } from './order/order-list/order-list.component';
 import { OrderComponent } from './order/order.component';
 import { OrderListItemComponent } from './order/order-list/order-list-item/order-list-item.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
+import { OrderDetailComponent } from './order/order-detail/order-detail.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PaginationComponent } from './common/pagination/pagination.component';
     OrderListComponent,
     OrderComponent,
     OrderListItemComponent,
-    PaginationComponent
+    PaginationComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,

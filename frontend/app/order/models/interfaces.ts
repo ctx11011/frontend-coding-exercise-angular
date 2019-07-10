@@ -11,11 +11,11 @@ export interface Order {
   lastModified: Date;
   lateReason?: string;
   packaging: string;
-  paymentType: string; // enum?
+  paymentType: Payment;
   price: Price;
   delivery: number; // boolean?
   items: number;
-  total: number
+  total: number;
   vatAmount: number;
   vatRate: number;
   vatableItems: number;
@@ -37,4 +37,10 @@ export interface Price {
   vatRate: number;
   vatableItems: number;
   vatAmount: number;
+}
+
+export enum Payment {
+  CASH = 'cash',
+  CARD = 'card',
+  PAY_ON_ACCOUNT = 'account'
 }

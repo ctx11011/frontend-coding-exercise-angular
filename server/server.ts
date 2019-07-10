@@ -33,4 +33,15 @@ app.get('/orders', (req, res) => {
   });
 });
 
+/**
+ * Fetches a single order.
+ * Parameters: id (number) the order id.
+ */
+app.get('/orders/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const orderItem = orders.filter(order => order.id === id);
+
+  res.send(orderItem.length ? orderItem[0] : 404);
+});
+
 app.listen(4300, () => console.log('Server active on port 4300!'));
