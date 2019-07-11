@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from './order.service';
-import { Order } from '../order/models/interfaces';
+import { Order, Column } from '../order/models/interfaces';
 
 @Component({
   selector: 'app-order',
@@ -11,6 +11,13 @@ import { Order } from '../order/models/interfaces';
 export class OrderComponent implements OnInit {
 
   orders: Order[] = [];
+
+  columns: Column[] = [
+    {
+      label: 'Customer',
+      property: 'customer'
+    }
+  ];
 
   constructor(private readonly orderService: OrderService) {}
 

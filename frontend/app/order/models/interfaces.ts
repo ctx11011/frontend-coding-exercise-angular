@@ -40,7 +40,12 @@ export interface Price {
 }
 
 export enum Payment {
-  CASH = 'cash',
-  CARD = 'card',
-  PAY_ON_ACCOUNT = 'account'
+  CASH = 'Cash',
+  CARD = 'Card',
+  PAY_ON_ACCOUNT = 'Account'
+}
+
+export interface Column {
+  label: string;
+  property: string;
 }

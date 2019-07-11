@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Payment, Order } from '../../models/interfaces';
 
 @Component({
   selector: '[app-order-list-item]',
@@ -6,5 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./order-list-item.component.scss']
 })
 export class OrderListItemComponent {
-  @Input() order;
+  @Input() order: Order;
+
+  paymentType(payment: Payment): string {
+    return Payment[payment];
+  }
 }

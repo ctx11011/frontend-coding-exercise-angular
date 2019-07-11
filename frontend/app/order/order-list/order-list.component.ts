@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Order } from '../models/interfaces';
 
 @Component({
   selector: 'app-order-list',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./order-list.component.scss'],
 })
 export class OrderListComponent {
-  @Input() orders: any[];
+  @Input() orders: Order[];
 }

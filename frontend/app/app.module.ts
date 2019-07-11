@@ -10,6 +10,7 @@ import { OrderComponent } from './order/order.component';
 import { OrderListItemComponent } from './order/order-list/order-list-item/order-list-item.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
 import { OrderDetailComponent } from './order/order-detail/order-detail.component';
+import { DatePipe } from './common/date.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { OrderDetailComponent } from './order/order-detail/order-detail.componen
     OrderComponent,
     OrderListItemComponent,
     PaginationComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    DatePipe
   ],
   imports: [
     BrowserModule,

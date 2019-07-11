@@ -1,15 +1,27 @@
 <h1>Orders</h1>
 
 <table>
-  <tr
-    app-order-list-item
-    *ngFor="let order of orders"
-    [order]="order"
-    [routerLink]="['/orders/', order.id]"
-  ></tr>
-  <tr *ngIf="!orders">
-    <td>
-      No orders loaded.
-    </td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Vendor</th>
+      <th>Headcount</th>
+      <th>Delivered</th>
+      <th>Payment Type</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      app-order-list-item
+      *ngFor="let order of orders"
+      [order]="order"
+      [routerLink]="['/orders/', order.id]"
+    ></tr>
+    <tr *ngIf="!orders">
+      <td>
+        No orders loaded.
+      </td>
+    </tr>
+  </tbody>
 </table>
