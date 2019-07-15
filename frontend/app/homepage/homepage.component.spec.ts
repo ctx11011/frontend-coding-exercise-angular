@@ -34,7 +34,7 @@ describe('HomepageComponent', () => {
     const title = fixture.debugElement.query(By.css('h1'));
 
     expect(title).toBeTruthy();
-    expect(title.nativeElement.innerText).toContain('City Pantry');
+    expect(title.nativeElement.textContent).toContain('City Pantry');
   });
 
   it('should have a list of links', () => {

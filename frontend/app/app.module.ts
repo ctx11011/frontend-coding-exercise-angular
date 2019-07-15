@@ -5,29 +5,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRouterModule } from './app.router';
 import { HomepageComponent } from './homepage/homepage.component';
-import { OrderListComponent } from './order/order-list/order-list.component';
-import { OrderComponent } from './order/order.component';
-import { OrderListItemComponent } from './order/order-list/order-list-item/order-list-item.component';
-import { PaginationComponent } from './common/pagination/pagination.component';
-import { OrderDetailComponent } from './order/order-detail/order-detail.component';
-import { DatePipe } from './common/date.pipe';
+import { OrderModule } from './order/order.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
-    OrderListComponent,
-    OrderComponent,
-    OrderListItemComponent,
-    PaginationComponent,
-    OrderDetailComponent,
-    DatePipe
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
     AppRouterModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

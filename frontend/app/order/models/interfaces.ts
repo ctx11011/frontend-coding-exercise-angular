@@ -45,7 +45,35 @@ export enum Payment {
   PAY_ON_ACCOUNT = 'Account'
 }
 
+export interface OrderResponse {
+  count: number;
+  items: Order[];
+  page: number;
+  pageSize: number;
+  total: number;
+}
+
+export enum DataType {
+  STRING = 'string',
+  NUMBER = 'number',
+  DATE = 'date'
+}
+
 export interface Column {
+  field: string;
   label: string;
-  property: string;
+  class?: string;
+  callback?: () => void;
+  format?: (data: any) => string;
+}
+
+export enum SortDirection {
+  ASC = 'asc',
+  DESC = 'desc'
+}
+
+export interface Sorting {
+  field: string;
+  type: DataType;
+  direction: SortDirection;
 }

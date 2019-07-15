@@ -3,22 +3,21 @@
 <table>
   <thead>
     <tr>
-      <th>Customer</th>
-      <th>Vendor</th>
-      <th>Headcount</th>
-      <th>Delivered</th>
-      <th>Payment Type</th>
-      <th>Total Price</th>
+      <th
+        *ngFor="let column of columns"
+        [ngClass]="getColumnClass(column)"
+        (click)="column.callback()"
+      >{{ column.label }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr
-      app-order-list-item
-      *ngFor="let order of orders"
-      [order]="order"
-      [routerLink]="['/orders/', order.id]"
-    ></tr>
-    <tr *ngIf="!orders">
+    <tr *ngFor="let order of orders">
+      <td
+        *ngFor="let column of columns"
+        [ngClass]="column.class"
+      >{{ column.format ? column.format(getData(column.field, order)) : getData(column.field, order) }}</td>
+    </tr>
+    <tr *ngIf="!orders.length">
       <td>
         No orders loaded.
       </td>

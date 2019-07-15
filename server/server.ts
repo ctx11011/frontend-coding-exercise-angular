@@ -21,8 +21,13 @@ app.get('/', (req, res) => {
  */
 app.get('/orders', (req, res) => {
   const page = req.query.page ? Math.max(1, req.query.page) : 1;
+  const sort = req.query.sort ? req.query.sort : 'id';
+  const direction = req.query.direction ? req.query.direction : 'desc';
+  const type = req.query.type ? req.query.type : 'string';
 
-  const items = orders.slice(100 * (page - 1), 100 * page);
+  const items = orders
+    .sort((a, b) => sortFn(a, b, type, sort, direction))
+    .slice(100 * (page - 1), 100 * page);
 
   res.send({
     page: page,
@@ -33,15 +38,32 @@ app.get('/orders', (req, res) => {
   });
 });
 
-/**
- * Fetches a single order.
- * Parameters: id (number) the order id.
- */
-app.get('/orders/:id', (req, res) => {
-  const id = parseInt(req.params.id, 10);
-  const orderItem = orders.filter(order => order.id === id);
-
-  res.send(orderItem.length ? orderItem[0] : 404);
-});
 
 app.listen(4300, () => console.log('Server active on port 4300!'));
+
+function sortFn(a, b, type, prop, direction) {
+  switch (type) {
+    case 'string':
+      if (getProp(a, prop).toLowerCase() === getProp(b, prop).toLowerCase()) {
+        return 0;
+      }
+      return direction === 'asc'
+        ? getProp(a, prop).toLowerCase() < getProp(b, prop).toLowerCase() ? -1 : 1
+        : getProp(a, prop).toLowerCase() > getProp(b, prop).toLowerCase() ? -1 : 1;
+    case 'number':
+      return direction === 'asc'
+        ? getProp(a, prop) - getProp(b, prop)
+        : getProp(b, prop) - getProp(a, prop);
+    case 'date':
+      a = new Date(getProp(a, prop));
+      b = new Date(getProp(b, prop));
+      return direction === 'asc' ? a - b : b - a;
+  }
+}
+
+function getProp(object, field) {
+  const properties = field.split('.');
+  return properties.reduce((acc, val) => {
+    return acc && acc[val] || null;
+  }, object);
+}

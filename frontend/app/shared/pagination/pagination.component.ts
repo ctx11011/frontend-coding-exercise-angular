@@ -23,6 +23,14 @@ export class PaginationComponent {
       .map((item, i) => i);
   }
 
+  get isFirstPage(): boolean {
+    return this.currentPage === 1;
+  }
+
+  get isLastPage(): boolean {
+    return this.currentPage === this.pages.length;
+  }
+
   previousPage() {
     if (this.currentPage === 1) {
       return;
