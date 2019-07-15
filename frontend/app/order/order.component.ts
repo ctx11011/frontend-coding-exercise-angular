@@ -28,8 +28,7 @@ export class OrderComponent implements OnInit {
       .getOrders(page)
       .subscribe(
         response => this.response = response,
-        // do something more meaningful here...
-        error => console.error(error)
+        // TODO do something meaningful with the error here...
       );
   }
 }

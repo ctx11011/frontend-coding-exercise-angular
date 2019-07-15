@@ -7,9 +7,7 @@
     "ng": "ng",
     "start": "concurrently \"yarn server\" \"ng serve\" --names server,client --prefix-colors yellow,blue",
     "server": "nodemon --exec \"ts-node\" server/server.ts --ext ts,json --watch server",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
+    "test": "jest --coverage",
     "lint": "ng lint",
     "generate": "ts-node generator/generate.ts"
   },
