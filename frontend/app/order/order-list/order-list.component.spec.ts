@@ -154,17 +154,29 @@ describe('OrderListComponent', () => {
     const spy = jest.spyOn(service, 'sort');
     headings[0].triggerEventHandler('click', null);
     expect(spy).toBeCalledWith('customer', DataType.STRING);
+
     headings[1].triggerEventHandler('click', null);
     expect(spy).toBeCalledWith('vendor', DataType.STRING);
+
     headings[2].triggerEventHandler('click', null);
     expect(spy).toBeCalledWith('headcount', DataType.NUMBER);
+
     headings[3].triggerEventHandler('click', null);
     expect(spy).toBeCalledWith('deliveredAt', DataType.DATE);
+
     headings[4].triggerEventHandler('click', null);
     expect(spy).toBeCalledWith('requestedDeliveryDate', DataType.DATE);
+
     headings[5].triggerEventHandler('click', null);
-    expect(spy).toBeCalledWith('paymentType', DataType.STRING);
+    expect(spy).toBeCalledWith('delayMinutes', DataType.NUMBER);
+
     headings[6].triggerEventHandler('click', null);
+    expect(spy).toBeCalledWith('lateReason', DataType.STRING);
+
+    headings[7].triggerEventHandler('click', null);
+    expect(spy).toBeCalledWith('paymentType', DataType.STRING);
+
+    headings[8].triggerEventHandler('click', null);
     expect(spy).toBeCalledWith('price.total', DataType.NUMBER);
   });
 });

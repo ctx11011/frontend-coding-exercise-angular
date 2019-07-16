@@ -43,6 +43,17 @@ export class OrderListComponent {
       format: d => this.formatDate(d)
     },
     {
+      label: 'Delay',
+      field: 'delayMinutes',
+      class: 'text-right',
+      callback: () => this.sort('delayMinutes', DataType.NUMBER),
+    },
+    {
+      label: 'Reason',
+      field: 'lateReason',
+      callback: () => this.sort('lateReason', DataType.STRING),
+    },
+    {
       label: 'Payment',
       field: 'paymentType',
       callback: () => this.sort('paymentType', DataType.STRING),

@@ -44,16 +44,24 @@ app.listen(4300, () => console.log('Server active on port 4300!'));
 function sortFn(a, b, type, prop, direction) {
   switch (type) {
     case 'string':
-      if (getProp(a, prop).toLowerCase() === getProp(b, prop).toLowerCase()) {
+      a = getProp(a, prop);
+      b = getProp(b, prop);
+      if (!a) {
+        return 1;
+      }
+      if (!b) {
+        return -1;
+      }
+      if (a.toLowerCase() === b.toLowerCase()) {
         return 0;
       }
       return direction === 'asc'
-        ? getProp(a, prop).toLowerCase() < getProp(b, prop).toLowerCase() ? -1 : 1
-        : getProp(a, prop).toLowerCase() > getProp(b, prop).toLowerCase() ? -1 : 1;
+        ? a.toLowerCase() < b.toLowerCase() ? -1 : 1
+        : a.toLowerCase() > b.toLowerCase() ? -1 : 1;
     case 'number':
-      return direction === 'asc'
-        ? getProp(a, prop) - getProp(b, prop)
-        : getProp(b, prop) - getProp(a, prop);
+        a = getProp(a, prop);
+        b = getProp(b, prop);
+      return direction === 'asc' ? a - b : b - a;
     case 'date':
       a = new Date(getProp(a, prop));
       b = new Date(getProp(b, prop));
