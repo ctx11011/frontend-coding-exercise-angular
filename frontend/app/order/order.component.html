@@ -1,0 +1,10 @@
+<app-order-list
+  [orders]="response.items"
+  [sorting]="sorting"
+></app-order-list>
+<app-pagination
+  [totalItems]="response.total"
+  [currentPage]="response.page"
+  [currentPageItems]="response.count"
+  (gotoPage)="getPage($event)"
+></app-pagination>

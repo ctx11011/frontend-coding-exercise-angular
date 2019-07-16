@@ -1,0 +1,11 @@
+@import 'theme.scss';
+@import 'typography.scss';
+@import 'tables.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.text-right {
+  text-align: right;
+}

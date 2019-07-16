@@ -1,0 +1,5 @@
+<ol>
+  <li class="prev" [ngClass]="{'disabled' : isFirstPage}" (click)="previousPage()">&lt;</li>
+  <li class="summary">Page {{ currentPage }} of {{ pages.length }}</li>
+  <li class="next" [ngClass]="{'disabled' : isLastPage}" (click)="nextPage()">&gt;</li>
+</ol>

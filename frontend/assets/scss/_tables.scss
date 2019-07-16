@@ -1,0 +1,46 @@
+@import 'theme.scss';
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: 1px solid $borderColour;
+  text-align: left;
+  cursor: pointer;
+  &:hover {
+    color: #333;
+  }
+  &.sorting-desc,
+  &.sorting-asc {
+    &:after {
+      font-size: 0.8em;
+      margin-left: 0.25em;
+      vertical-align: top;
+    }
+  }
+
+  &.sorting-desc {
+    &:after {
+      content: '↓';
+    }
+  }
+  &.sorting-asc {
+    &:after {
+      content: '↑';
+    }
+  }
+}
+
+tbody {
+  tr {
+    &:nth-child(odd) {
+      background: #fafafa;
+    }
+  }
+}
+
+td,
+th {
+  padding: 0.5em;
+}
